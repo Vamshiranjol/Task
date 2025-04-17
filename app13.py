@@ -1,5 +1,6 @@
 from flask import Flask,request,jsonify,render_template
 import pickle
+import os
 
 with open('disease_tablet.pkl','rb') as f:
     model=pickle.load(f)
@@ -20,5 +21,5 @@ def predict():
     
 
 if __name__ == "__main__":
-    app.run(debug=True)
-
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
+    
