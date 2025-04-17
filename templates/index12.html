@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+    <title>Medical Entity Extractor</title>
+    <style>
+        body { font-family: Arial; margin: 40px; }
+        textarea { width: 100%; height: 200px; }
+        .entity { background: #e0f7fa; padding: 2px 4px; border-radius: 4px; margin: 2px 0; }
+    </style>
+</head>
+<body>
+    <h1>Medical Entity Extractor</h1>
+    <form method="post">
+        <textarea name="text" placeholder="Paste a doctor's note or medical text here...">{{ text }}</textarea><br><br>
+        <button type="submit">Extract Entities</button>
+    </form>
+    {% if entities %}
+        <h2>Entities Found:</h2>
+        <ul>
+            {% for ent in entities %}
+                <li class="entity">{{ ent.text }} [{{ ent.label_ }}]</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>

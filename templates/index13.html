@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Disease Tablet Predictor</title>
+</head>
+<body>
+    <style>
+        body {
+            background-image: url('/static/pexels-pixabay-139398.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color:white;
+            color: rgb(18, 17, 17);
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 100px;
+        }
+    
+        input {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+    
+        input[type="submit"] {
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+    
+
+    <h2>Enter Symptom/Disease</h2>
+    <form method="POST" action="/predict">
+        <input type="text" name="symptom" placeholder="e.g., fever, cough" required>
+        <input type="submit" value="Predict Tablet">
+    </form>
+
+    {% if prediction_text %}
+        <h2>{{ prediction_text }}</h2>
+    {% endif %}
+</body>
+</html>

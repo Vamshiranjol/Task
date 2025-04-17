@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> Disease Predictor </title>
+        <style>
+            body{
+                background-image:url("Health-Care1.jpg");
+                margin-top:100px;
+                margin-bottom:100px;
+                margin-left:500px;
+                margin-right:150px;
+
+            }
+
+            .styled-select {
+                width: 70%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                box-sizing: border-box;
+                border-bottom: 4px solid black;
+                font-size: 16px;
+                background-color: white;
+                color: #444;
+                
+                
+            }
+
+            h1{
+                margin: left 100px; 
+            }
+            input{
+                width:70%;
+                padding:12px 20px;
+                margin: 8px 0;
+                box-sizing:border-box;
+                border-bottom: 4px solid black;
+            }
+            button{
+                background-color: black;
+                margin: auto;
+                color: white;
+                padding: 15px 100px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: left 170px; ;
+
+
+            }
+            h3 {
+                margin-left: 60px;
+                color: rgb(29, 16, 16);
+            }
+        </style>
+    </head>
+        <body>
+        <div class="login">
+            <h1> Disease Prediction </h1>
+            <form action="{{url_for('predict')}}" method="post">
+                <input type="text" name="AGE" placeholder="AGE" required="required"/>
+                <input type="text" name="BMI" placeholder="BMI" required="required"/>
+                <input type="text" name="Blood Pressure" placeholder="Blood Pressure" required="required"/>
+                <input type="text" name="Cholesterol" placeholder="Cholesterol" required="required"/>
+                
+                <select name="Smoking Habit" required class="styled-select">
+                    <option value="" disabled selected>Smoking Habit</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            
+                <select name="Diabetes" required class="styled-select">
+                    <option value="" disabled selected>Diabetes</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            
+                <button type="submit">Predict</button>
+            </form>
+            
+            
+            <h3>
+                {{prediction_text}}
+                </h3>
+        </div>
+
+        </body>
+    
+</html>
